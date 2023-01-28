@@ -1,0 +1,15 @@
+{
+  "frontEnd": "Fall",
+  "switchLan": "language control",
+  "switchToEn": "English",
+  "switchToCh": "中文",
+  "localLan": "The internationalization of this project is still working on",
+  "menu-contact": "Contact",
+  "menu-icon": "Icons",
+  "menu-roots": "Roots",
+  "menu-components": "Components",
+  "menu-i18n": "I18n",
+  "menu-form": "Form",
+  "menu-works": "Works",
+  "menu-table": "Table"
+}

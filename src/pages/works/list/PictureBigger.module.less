@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+}
+
+.img-origin {
+  position: relative;
+  left: 20px;
+  top: 10px;
+  background-size: 100% 50%;
+}
+
+.img-origin img {
+  min-width: 100px;
+  min-height: 100px;
+  max-height: 400px;
+  max-width: 300px;
+  display: block;
+}
+
+.mask {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100px;
+  width: 100px;
+  border: 1px solid rgb(102 102 102);
+  background-color: rgb(221 160 221 / 40%);
+  box-sizing: border-box;
+}
+
+.img-after {
+  display: none;
+  height: 400px;
+  width: 400px;
+  border: 1px solid black;
+  left: 40px;
+  top: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.img-after img {
+  position: absolute;
+  left: 0;
+  top: 0;
+}

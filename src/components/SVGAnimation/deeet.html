@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>单个内容给你</title>
+</head>
+<style>
+  .container {
+    background-color: azure;
+    height: 100vh;
+    filter: contrast(20)
+  }
+
+  .box {
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    filter: blur(10px);
+    transform: translate(-50%, -50%);
+  }
+
+  .box1 {
+    height: 80px;
+    width: 80px;
+    background-color: rgb(0, 0, 0);
+    animation: moveToRight 4s infinite;
+  }
+
+  .box2 {
+    height: 160px;
+    width: 160px;
+    background-color: rgb(0, 0, 0);
+  }
+
+  @keyframes moveToRight {
+    50% {
+      left: 40%
+    }
+  }
+</style>
+
+<body>
+
+  <div class="container">
+    <div class="box box2"> </div>
+    <div class="box box1"> </div>
+  </div>
+  <!-- Author by Chris Gannon -->
+  <script>
+  </script>
+</body>
+
+</html>

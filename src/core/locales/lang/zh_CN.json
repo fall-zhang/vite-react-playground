@@ -1,0 +1,15 @@
+{
+  "frontEnd": "Fall",
+  "switchLan": "语言切换",
+  "switchToEn": "English",
+  "switchToCh": "中文",
+  "localLan": "本项目国际化基于",
+  "menu-contact": "联系方式",
+  "menu-icon": "图标",
+  "menu-roots": "权限",
+  "menu-components": "组件",
+  "menu-i18n": "国际化",
+  "menu-form": "表单",
+  "menu-works": "作品",
+  "menu-table": "表格"
+}
