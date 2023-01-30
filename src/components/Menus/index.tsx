@@ -11,6 +11,7 @@ import {
   TranslationOutlined,
   TableOutlined
 } from '@ant-design/icons'
+import pageRoutes from '@/router/pageRoutes'
 import { formatMessage } from '@/core/locales'
 type MenuItem = Required<MenuProps>['items'][number];
 

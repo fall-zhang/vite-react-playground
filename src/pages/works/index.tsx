@@ -1,6 +1,6 @@
 import React from 'react'
 import { Tabs } from 'antd'
-import PictureBigger from './list/PictureBigger'
+// import PictureBigger from './list/PictureBigger'
 import CSSClock from './list/OneClock'
 const { TabPane } = Tabs
 const WorkPage: React.FC = () => {
@@ -11,7 +11,7 @@ const WorkPage: React.FC = () => {
     <div>
       <Tabs defaultActiveKey="1" centered onChange={onChange}>
         <TabPane tab="图片放大" key="1">
-          <PictureBigger />
+          {/* <PictureBigger /> */}
         </TabPane>
         <TabPane tab="时钟" key="2">
           <CSSClock />
