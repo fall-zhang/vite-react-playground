@@ -8,7 +8,7 @@ async function isSignIn():Promise<boolean> {
   if (!logged){
     // history.push('/login')
   }
-  return logged
+  return false
 }
 
 export default isSignIn

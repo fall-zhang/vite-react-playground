@@ -1,9 +1,10 @@
-import React, { LazyExoticComponent, ComponentType,ReactElement } from 'react'
+import type{ LazyExoticComponent, ComponentType,ReactElement, ReactNode } from 'react'
 // 路由meta
 export interface RouteMeta {
   title: string
   hidden?: boolean
   auth?: string
+  icon?: ReactNode
 }
 // 单条路由，路由下面最多嵌套一层菜单
 export interface RouteParam {

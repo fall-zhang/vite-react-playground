@@ -7,7 +7,7 @@ import MainLayout from '@/layouts/MainLayout'
 import Icon from '@/pages/icon'
 import Contact from '@/pages/contact/index'
 import WorkList from '@/pages/works/index'
-
+import Picture from '@/pages/picture/compress'
 // React.lazy(() => import("@/pages/contact/index"))
 const RouterPage: React.FC = () => {
   return (
@@ -17,11 +17,12 @@ const RouterPage: React.FC = () => {
         <Route path='/err' element={<ErrorPage></ErrorPage>}></Route>
         <Route path='/*' element={<MainLayout>
           <Routes>
+            <Route path="/picture" element={<Picture />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/works" element={<WorkList />} />
             <Route path="/icon" element={<Icon />} />
             <Route path="/root" element={<Icon />} />
-            <Route path='/*' element={<Navigate to="/login" replace />} ></Route>
+            <Route path='/*' element={<Navigate to="/err" replace />} ></Route>
           </Routes>
         </MainLayout>}>
         </Route>
