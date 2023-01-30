@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  height: 600px;
 }
 
 .img-origin {
@@ -19,6 +20,7 @@
 
 .mask {
   display: none;
+  pointer-events: none;
   position: absolute;
   left: 0;
   top: 0;
@@ -38,10 +40,10 @@
   top: 10px;
   position: relative;
   overflow: hidden;
-}
 
-.img-after img {
-  position: absolute;
-  left: 0;
-  top: 0;
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
 }

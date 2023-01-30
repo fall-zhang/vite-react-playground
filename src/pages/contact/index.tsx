@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import type { ReactNode } from 'react'
 import styles from './index.module.less'
 import { Tooltip } from 'antd'
 // import { $http } from "@/utils/reuqest"
 
-const DocPage: React.FC = ({ children }) => {
+const DocPage: React.FC<{ children?: ReactNode }> = ({ children }) => {
   return (
     <div>
       <Tooltip placement="top" color={'plum'} title={'fellow me'}>

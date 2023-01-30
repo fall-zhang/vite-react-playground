@@ -18,27 +18,29 @@ const PictureBigger: React.FC = () => {
     if (!showMask) {
       setShowMask(true)
     }
-    const originPoint = { x: ev.target.offsetParent.offsetLeft, y: ev.target.offsetParent.offsetTop }
+    const originPoint = { x: ev.nativeEvent.layerX, y: ev.nativeEvent.layerY }
     if (maskDOM && bigImageDOM) {
-      if (ev.clientX - originPoint.x - 50 < 0) {
-        bigImageDOM.style.marginLeft = '0'
+      // 控制横坐标
+      if (originPoint.x < 50) {
         maskDOM.style.left = '0'
-      } else if (ev.clientX - originPoint.x + 50 > imageWidth) {
+        bigImageDOM.style.marginLeft = '0'
+      } else if (originPoint.x < imageWidth - 50) {
+        maskDOM.style.left = originPoint.x - 50 + 'px'
+        bigImageDOM.style.marginLeft = -4 * (originPoint.x - 50) + 'px'
+      } else {
         maskDOM.style.left = imageWidth - 100 + 'px'
         bigImageDOM.style.marginLeft = -4 * (imageWidth - 100) + 'px'
-      } else {
-        bigImageDOM.style.marginLeft = (-(ev.clientX - originPoint.x - 50) * 4) + 'px'
-        maskDOM.style.left = ev.clientX - originPoint.x - 50 + 'px'
       }
-      if ((ev.clientY - originPoint.y + 50) < 100) {
-        bigImageDOM.style.marginTop = '0'
+      // 控制纵坐标
+      if (originPoint.y < 50) {
         maskDOM.style.top = '0'
-      } else if ((ev.clientY - originPoint.y + 50) > imageHeight) {
-        bigImageDOM.style.marginTop = -4 * (imageHeight - 100) + 'px'
-        maskDOM.style.top = imageHeight - 100 + 'px'
+        bigImageDOM.style.marginTop = '0'
+      } else if (originPoint.y < imageHeight - 50) {
+        maskDOM.style.top = originPoint.y - 50 + 'px'
+        bigImageDOM.style.marginTop = -4 * (originPoint.y - 50) + 'px'
       } else {
-        bigImageDOM.style.marginTop = (-(ev.clientY - originPoint.y - 50) * 4) + 'px'
-        maskDOM.style.top = ev.clientY - originPoint.y - 50 + 'px'
+        maskDOM.style.top = imageHeight - 100 + 'px'
+        bigImageDOM.style.marginTop = -4 * (imageHeight - 100) + 'px'
       }
     }
   }
@@ -60,8 +62,8 @@ const PictureBigger: React.FC = () => {
   return (
     <div className={styles.container}>
       {(imageWidth < 100 || imageWidth < 100) ? <h2>请选择长宽大于100px的图片</h2> : ''}
-      <div className={styles['img-origin']} onMouseOver={(ev) => mouseOverImage(ev)} onMouseMove={(e) => moveOrigin(e)} onMouseLeave={leaveOrigin}>
-        <img src={Animate} />
+      <div className={styles['img-origin']} >
+        <img src={Animate} onMouseOver={(ev) => mouseOverImage(ev)} onMouseMove={(e) => moveOrigin(e)} onMouseLeave={leaveOrigin} />
         <div className={styles.mask} style={{ display: showMask ? 'block' : 'none' }}></div>
       </div>
       <div className={styles['img-after']} style={{ display: showMask ? 'block' : 'none' }}>
