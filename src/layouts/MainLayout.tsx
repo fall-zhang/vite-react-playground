@@ -9,11 +9,12 @@ import React, { ReactNode, useState } from 'react'
 
 import Menu from '@C/Menus'
 import FooterText from './material/Footer'
+import './MainLayout.less'
 import { Layout } from 'antd'
 const { Sider, Content, Footer } = Layout
 const MainPage: React.FC<{ children?: ReactNode }> = (prop) => {
   const [collapsed, setCollapsed] = useState<boolean>(false)
-  return (<>
+  return (
     <Layout style={{ minHeight: '100vh', width: '100%' }}>
       <Sider
         collapsible
@@ -23,15 +24,15 @@ const MainPage: React.FC<{ children?: ReactNode }> = (prop) => {
       >
         <Menu />
       </Sider>
-      <Layout className="site-layout">
-        <Content style={{ margin: '16px 16px', overflow: 'auto' }}>
+      <Layout className="layout-main">
+        <Content style={{ height: 'calc(100vh-24px)', padding: '16px 16px', overflow: 'auto' }}>
           {prop.children}
         </Content>
-        <Footer style={{ textAlign: 'center' }}>
+        <Footer style={{ height: '24px', textAlign: 'center', boxSizing: 'border-box' }}>
           <FooterText />
         </Footer>
       </Layout>
     </Layout>
-  </>)
+  )
 }
 export default MainPage
