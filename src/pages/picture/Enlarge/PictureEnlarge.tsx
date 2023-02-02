@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from './PictureBigger.module.less'
+import styles from './PictureEnlarge.module.less'
 import Animate from '@/asset/image/animate.png'
 // import type { HTML } from 'react'
 
@@ -9,7 +9,10 @@ let bigImageDOM: HTMLDivElement | null = null
 let maskDOM: HTMLDivElement | null = null
 let imageWidth = 100
 let imageHeight = 100
-
+/**
+ * 实现放大图片
+ * @returns ReactNode
+ */
 const PictureBigger: React.FC = () => {
   const [showMask, setShowMask] = useState(false)
   const image = new Image()
@@ -18,7 +21,9 @@ const PictureBigger: React.FC = () => {
     if (!showMask) {
       setShowMask(true)
     }
-    const originPoint = { x: ev.nativeEvent.layerX, y: ev.nativeEvent.layerY }
+    const rectPosition = ev.target.getBoundingClientRect()
+    const originPoint = { x: Math.round(ev.clientX - rectPosition.x), y: Math.round(ev.clientY - rectPosition.y) }
+    // const originPoint = { x: ev.nativeEvent.layerX, y: ev.nativeEvent.layerY }
     if (maskDOM && bigImageDOM) {
       // 控制横坐标
       if (originPoint.x < 50) {
