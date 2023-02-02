@@ -6,7 +6,6 @@ import zhCN from 'antd/locale/zh_CN'
 import 'antd/dist/reset.css'
 import RouterPage from './router'
 import clsx from 'clsx'
-
 // import { LocaleProvider } from './core/locales'
 const container = document.getElementById('root')!
 const root = createRoot(container)

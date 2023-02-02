@@ -4,11 +4,8 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import LoginPage from '@/pages/login'
 import ErrorPage from '@/pages/err'
 import MainLayout from '@/layouts/MainLayout'
-import Icon from '@/pages/icon'
-import Contact from '@/pages/contact/index'
-import WorkList from '@/pages/works/index'
-import Picture from '@/pages/picture/compress'
-// React.lazy(() => import("@/pages/contact/index"))
+
+import pageRoutes from './pageRoutes'
 const RouterPage: React.FC = () => {
   return (
     <BrowserRouter>
@@ -17,11 +14,18 @@ const RouterPage: React.FC = () => {
         <Route path='/err' element={<ErrorPage></ErrorPage>}></Route>
         <Route path='/*' element={<MainLayout>
           <Routes>
-            <Route path="/picture" element={<Picture />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/works" element={<WorkList />} />
-            <Route path="/icon" element={<Icon />} />
-            <Route path="/root" element={<Icon />} />
+            {pageRoutes.map(route => {
+              return (
+                <Route key={route.path} path={route.path} element={
+                  <React.Suspense fallback={<>加载中，请等待</>}>
+                    <route.component />
+                  </React.Suspense>
+                }>
+                </Route>
+              )
+            }
+            )}
+            <Route path='/' element={<Navigate to="/login" replace />} ></Route>
             <Route path='/*' element={<Navigate to="/err" replace />} ></Route>
           </Routes>
         </MainLayout>}>

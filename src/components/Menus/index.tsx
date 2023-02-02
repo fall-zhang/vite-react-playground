@@ -3,14 +3,6 @@ import styles from './index.module.less'
 import { Menu, Tooltip } from 'antd'
 import type { MenuProps } from 'antd'
 import { Link, useLocation } from 'react-router-dom'
-import {
-  GithubOutlined,
-  CreditCardOutlined,
-  DesktopOutlined,
-  PieChartOutlined,
-  TranslationOutlined,
-  TableOutlined
-} from '@ant-design/icons'
 import pageRoutes from '@/router/pageRoutes'
 import { formatMessage } from '@/core/locales'
 type MenuItem = Required<MenuProps>['items'][number];
@@ -21,16 +13,9 @@ const genMenuItem = (key: string, label: string, icon?: ReactNode, children?: Me
   label: <Link to={key}>{label}</Link>,
   children: children
 })
+console.log(pageRoutes)
 
-const menuItems: MenuProps['items'] = [
-  genMenuItem('/contact', formatMessage({ id: 'menu-contact' }), < GithubOutlined />),
-  genMenuItem('/icon', formatMessage({ id: 'menu-icon' }), <PieChartOutlined />),
-  genMenuItem('/works', formatMessage({ id: 'menu-works' }), < CreditCardOutlined />),
-  genMenuItem('/form', formatMessage({ id: 'menu-contact' }), < DesktopOutlined />),
-  genMenuItem('/locales', formatMessage({ id: 'menu-contact' }), < TranslationOutlined />),
-  genMenuItem('/table', formatMessage({ id: 'menu-contact' }), < TableOutlined />),
-  genMenuItem('/auth', formatMessage({ id: 'menu-contact' }), < GithubOutlined />)
-]
+const menuItems: MenuProps['items'] = pageRoutes.map(route => genMenuItem(route.path, route.meta.title, route.meta.icon))
 const HomePage: React.FC = () => {
   // 收缩侧边栏
   const message = formatMessage({ id: 'frontEnd' })
