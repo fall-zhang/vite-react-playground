@@ -13,9 +13,10 @@ const genMenuItem = (key: string, label: string, icon?: ReactNode, children?: Me
   label: <Link to={key}>{label}</Link>,
   children: children
 })
-console.log(pageRoutes)
 
 const menuItems: MenuProps['items'] = pageRoutes.map(route => genMenuItem(route.path, route.meta.title, route.meta.icon))
+// console.log(menuItems);
+
 const HomePage: React.FC = () => {
   // 收缩侧边栏
   const message = formatMessage({ id: 'frontEnd' })

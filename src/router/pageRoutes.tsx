@@ -9,7 +9,7 @@ import {
 // 实现解析当前路由
 import type { RouteParam } from './route'
 const pageRoutes: RouteParam[] = [{
-  path: '/pciture',
+  path: '/picture',
   component: React.lazy(() => import('@/pages/picture/index')),
   meta: { title: '图片处理', icon: <TableOutlined /> }
 },
