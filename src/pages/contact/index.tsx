@@ -1,11 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import type { ReactNode } from 'react'
 import styles from './index.module.less'
 import './index.module.less'
 import { Tooltip } from 'antd'
+import ShuffleText from './shuffle-text'
 // import { $http } from "@/utils/reuqest"
 
 const ContactMe: React.FC<{ children?: ReactNode }> = ({ children }) => {
+  const dom = useRef<HTMLElement>(null)
+  useEffect(() => {
+    if (dom.current) {
+      const shuffle = new ShuffleText(dom.current!)
+      shuffle.start()
+    }
+  })
   return (
     <Tooltip placement="top" color={'plum'} title={'fellow me'}>
       <div className={styles.doc}>
@@ -13,6 +21,7 @@ const ContactMe: React.FC<{ children?: ReactNode }> = ({ children }) => {
           <div className={styles.infoContent}>
             掘金
           </div>
+          <span id='here' ref={dom}>未来的前端艺术家</span>
         </a>
         <a href="https://github.com/Fall-zhang" target="_blank" rel="noreferrer">
           <div className={styles.infoContent}>Github</div>

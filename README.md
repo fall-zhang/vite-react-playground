@@ -1,4 +1,4 @@
-# Vite + React + TypeScript Template
+# React Playground
 
 > 完美不在于无以附加，而在于无可删减
 
@@ -31,7 +31,6 @@
 - router 路由，界面路由的实现
 - service 定义接口
 - utils 工具类，不会掺杂任何逻辑，只是为了方便调用的工具文件
-- App.tsx 是用来向已经代理的端口上，添加合适的内容
 
 ## 开发进度
 

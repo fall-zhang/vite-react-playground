@@ -26,14 +26,17 @@ const pageRoutes: RouteParam[] = [{
 {
   path: '/icon',
   component: React.lazy(() => import('@/pages/icon/index')),
-  meta: { title: 'Icon选择', icon: <DesktopOutlined></DesktopOutlined> },
-  redirect: '/login'
+  meta: { title: 'Icon选择', icon: <DesktopOutlined></DesktopOutlined> }
 },
 {
   path: '/roots',
   component: React.lazy(() => import('@/pages/roots')),
-  meta: { title: '权限验证', icon: <PieChartOutlined></PieChartOutlined> },
-  redirect: '/login'
+  meta: { title: '权限验证', icon: <PieChartOutlined></PieChartOutlined> }
+},
+{
+  path: '/table',
+  component: React.lazy(() => import('@/pages/table')),
+  meta: { title: '表格导入导出', icon: <PieChartOutlined></PieChartOutlined> }
 }
 ]
 export default pageRoutes

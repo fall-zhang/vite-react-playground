@@ -47,6 +47,8 @@ module.exports = {
     'react/no-this-in-sfc': 0,
     'react/prop-types': 0,
     'comma-dangle': ['error', 'never'], // 最后一个属性不允许有逗号
-    'react/display-name': 'off'
+    'react/display-name': 'off',
+    // TS
+    '@typescript-eslint/no-this-alias': 0
   }
 }
