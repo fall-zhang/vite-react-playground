@@ -13,7 +13,7 @@ const ContactMe: React.FC<{ children?: ReactNode }> = ({ children }) => {
       const shuffle = new ShuffleText(dom.current!)
       shuffle.start()
     }
-  })
+  }, [])
   return (
     <Tooltip placement="top" color={'plum'} title={'fellow me'}>
       <div className={styles.doc}>
