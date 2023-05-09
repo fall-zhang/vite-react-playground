@@ -14,7 +14,15 @@ const genMenuItem = (key: string, label: string, icon?: ReactNode, children?: Me
   children: children
 })
 
-const menuItems: MenuProps['items'] = pageRoutes.map(route => genMenuItem(route.path, route.meta.title, route.meta.icon))
+const menuItems: MenuProps['items'] = pageRoutes.map(route => {
+  let child: MenuProps['items'] = undefined
+  if (route.children) {
+    child = route.children.map(child => {
+      return genMenuItem(child.path, child.meta.title, child.meta.icon)
+    })
+  }
+  return genMenuItem(route.path, route.meta.title, route.meta.icon, child)
+})
 // console.log(menuItems);
 
 const HomePage: React.FC = () => {

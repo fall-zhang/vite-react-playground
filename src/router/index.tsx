@@ -10,14 +10,38 @@ const RouterPage: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
+        {/* 全局路由页面，会覆盖整个页面 */}
         <Route path='/login' element={<LoginPage></LoginPage>}></Route>
         <Route path='/err' element={<ErrorPage></ErrorPage>}></Route>
+        {/* 默认会添加左侧的菜单区域 */}
         <Route path='/*' element={<MainLayout>
           <Routes>
             {pageRoutes.map(route => {
+              if (route.children) {
+                return (
+                  <>
+                    <Route key={route.path} path={route.path} element={
+                      <route.component />
+                    }>
+                    </Route>
+                    {
+                      route.children.map(children => {
+                        return (
+                          <Route key={children.path} path={children.path} element={
+                            <React.Suspense fallback={<></>}>
+                              <children.component />
+                            </React.Suspense>
+                          }>
+                          </Route>
+                        )
+                      })
+                    }
+                  </>
+                )
+              }
               return (
                 <Route key={route.path} path={route.path} element={
-                  <React.Suspense fallback={<>加载中，请等待</>}>
+                  <React.Suspense fallback={<></>}>
                     <route.component />
                   </React.Suspense>
                 }>
@@ -25,8 +49,8 @@ const RouterPage: React.FC = () => {
               )
             }
             )}
-            <Route path='/' element={<Navigate to="/login" replace />} ></Route>
-            <Route path='/*' element={<Navigate to="/err" replace />} ></Route>
+            {/* <Route path='/' element={<Navigate to="/login" replace />} ></Route> */}
+            {/* <Route path='/*' element={<Navigate to="/err" replace />} ></Route> */}
           </Routes>
         </MainLayout>}>
         </Route>

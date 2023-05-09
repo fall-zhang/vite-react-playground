@@ -6,12 +6,23 @@ import {
   PieChartOutlined,
   TableOutlined
 } from '@ant-design/icons'
+// import BlankRoute from 'BlankPage'
 // 实现解析当前路由
 import type { RouteParam } from './route'
 const pageRoutes: RouteParam[] = [{
   path: '/picture',
   component: React.lazy(() => import('@/pages/picture/index')),
-  meta: { title: '图片处理', icon: <TableOutlined /> }
+  meta: { title: '图片处理', icon: <TableOutlined /> },
+  children: [{
+    path: '/picture/watermark',
+    component: React.lazy(() => import('@/pages/picture/WaterMark/index')),
+    meta: { title: '添加水印', icon: <TableOutlined /> }
+  }, {
+    path: '/picture/picEnlarge',
+    component: React.lazy(() => import('@/pages/picture/Enlarge/PictureEnlarge')),
+    meta: { title: '图片放大', icon: <TableOutlined /> }
+  }
+  ]
 },
 {
   path: '/contact',
