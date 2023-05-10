@@ -21,13 +21,12 @@ const pageRoutes: RouteParam[] = [{
     path: '/picture/picEnlarge',
     component: React.lazy(() => import('@/pages/picture/Enlarge/PictureEnlarge')),
     meta: { title: '图片放大', icon: <TableOutlined /> }
+  }, {
+    path: '/picture/picCompress',
+    component: React.lazy(() => import('@/pages/picture/Compress/index')),
+    meta: { title: '图片压缩', icon: <TableOutlined /> }
   }
   ]
-},
-{
-  path: '/contact',
-  component: React.lazy(() => import('@/pages/contact/index')),
-  meta: { title: '联系方式', icon: <GithubOutlined></GithubOutlined> }
 },
 {
   path: '/works',
@@ -48,6 +47,10 @@ const pageRoutes: RouteParam[] = [{
   path: '/table',
   component: React.lazy(() => import('@/pages/table')),
   meta: { title: '表格导入导出', icon: <PieChartOutlined></PieChartOutlined> }
+}, {
+  path: '/contact',
+  component: React.lazy(() => import('@/pages/contact/index')),
+  meta: { title: '联系方式', icon: <GithubOutlined></GithubOutlined> }
 }
 ]
 export default pageRoutes

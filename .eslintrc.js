@@ -35,7 +35,7 @@ module.exports = {
     'no-multi-spaces': 2, // 不能用多余的空格
     'no-trailing-spaces': 2, // 一行结束后面不要有空格
     'eol-last': 0, // 文件以单一的换行符结束
-    eqeqeq: 1, //必须使用全等
+    eqeqeq: 1, // 必须使用全等
     'no-proto': 1, // 禁止使用__proto__属性
     'no-sparse-arrays': 2, // 禁止稀疏数组， [1,,2]
     quotes: [1, 'single'], // 引号类型 `` "" ''

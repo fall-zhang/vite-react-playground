@@ -6,6 +6,12 @@ import ErrorPage from '@/pages/err'
 import MainLayout from '@/layouts/MainLayout'
 
 import pageRoutes from './pageRoutes'
+const EmptyLayout: React.FC<{ children: any }> = ({ children }) => {
+  return <>
+    {children}
+  </>
+}
+// 日后再钻研 React-router 到底怎么使用
 const RouterPage: React.FC = () => {
   return (
     <BrowserRouter>
@@ -17,35 +23,26 @@ const RouterPage: React.FC = () => {
         <Route path='/*' element={<MainLayout>
           <Routes>
             {pageRoutes.map(route => {
-              if (route.children) {
-                return (
-                  <>
-                    <Route key={route.path} path={route.path} element={
-                      <route.component />
-                    }>
-                    </Route>
-                    {
-                      route.children.map(children => {
-                        return (
-                          <Route key={children.path} path={children.path} element={
-                            <React.Suspense fallback={<></>}>
-                              <children.component />
-                            </React.Suspense>
-                          }>
-                          </Route>
-                        )
-                      })
-                    }
-                  </>
-                )
-              }
               return (
-                <Route key={route.path} path={route.path} element={
-                  <React.Suspense fallback={<></>}>
-                    <route.component />
-                  </React.Suspense>
-                }>
-                </Route>
+                <>
+                  <Route key={route.path} path={route.path} element={
+                    <EmptyLayout>
+                    </EmptyLayout>
+                  }>
+                  </Route>
+                  {
+                    route.children && route.children.map(children => {
+                      return (
+                        <Route key={children.path} path={children.path} element={
+                          <React.Suspense fallback={<></>}>
+                            <children.component />
+                          </React.Suspense>
+                        }>
+                        </Route>
+                      )
+                    })
+                  }
+                </>
               )
             }
             )}

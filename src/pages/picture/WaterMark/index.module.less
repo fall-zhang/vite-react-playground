@@ -1,12 +1,49 @@
 .ninePatch {
   display: flex;
+  background-color: pink;
+  width: 90px;
 
   .rect {
-    height: 20px;
+    height: 30px;
     width: 30px;
 
     &:hover {
       background-color: rgb(234, 237, 240);
     }
+  }
+}
+
+.content {
+  display: flex;
+  height: 100%;
+
+  // align-items: center;
+  .left {
+    flex: 2 1 200px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+
+    .image {
+      // background-color: pink;
+      height: 680px;
+      width: 960px;
+    }
+
+    .operation {
+      display: flex;
+      height: 160px;
+      width: 160px;
+      border: 1px dashed #a1a1a1;
+      border-radius: 12px;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .right {
+    flex: 1 1 100px;
   }
 }
