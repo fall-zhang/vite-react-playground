@@ -6,11 +6,6 @@ import ErrorPage from '@/pages/err'
 import MainLayout from '@/layouts/MainLayout'
 
 import pageRoutes from './pageRoutes'
-const EmptyLayout: React.FC<{ children: any }> = ({ children }) => {
-  return <>
-    {children}
-  </>
-}
 // 日后再钻研 React-router 到底怎么使用
 const RouterPage: React.FC = () => {
   return (
@@ -20,36 +15,27 @@ const RouterPage: React.FC = () => {
         <Route path='/login' element={<LoginPage></LoginPage>}></Route>
         <Route path='/err' element={<ErrorPage></ErrorPage>}></Route>
         {/* 默认会添加左侧的菜单区域 */}
-        <Route path='/*' element={<MainLayout>
-          <Routes>
-            {pageRoutes.map(route => {
-              return (
-                <>
-                  <Route key={route.path} path={route.path} element={
-                    <EmptyLayout>
-                    </EmptyLayout>
-                  }>
-                  </Route>
-                  {
-                    route.children && route.children.map(children => {
-                      return (
-                        <Route key={children.path} path={children.path} element={
-                          <React.Suspense fallback={<></>}>
-                            <children.component />
-                          </React.Suspense>
-                        }>
-                        </Route>
-                      )
-                    })
-                  }
-                </>
-              )
-            }
-            )}
-            {/* <Route path='/' element={<Navigate to="/login" replace />} ></Route> */}
-            {/* <Route path='/*' element={<Navigate to="/err" replace />} ></Route> */}
-          </Routes>
-        </MainLayout>}>
+        <Route path='/' element={<MainLayout></MainLayout>}>
+          {pageRoutes.map(route => (
+            <Route key={route.path} path={route.path} element={<React.Suspense fallback={<></>}>
+              <route.component />
+            </React.Suspense>}>
+              {
+                route.children && route.children.map(children => {
+                  return (
+                    <Route key={children.path} path={children.path} element={
+                      <React.Suspense fallback={<></>}>
+                        <children.component />
+                      </React.Suspense>
+                    }>
+                    </Route>
+                  )
+                })
+              }
+            </Route>)
+          )}
+          <Route path='/' element={<Navigate to="/login" replace />} ></Route>
+          <Route path='/*' element={<Navigate to="/err" replace />} ></Route>
         </Route>
       </Routes>
     </BrowserRouter>
