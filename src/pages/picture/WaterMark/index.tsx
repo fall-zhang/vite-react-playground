@@ -2,10 +2,12 @@ import React, { useRef, useState, useEffect } from 'react'
 import { Button, Form, Input, InputNumber, Upload } from 'antd'
 import styles from './index.module.less'
 import clsx from 'clsx'
-
+import { useParams } from 'react-router-dom'
 export default function WaterMarkLayout() {
   const [imageSrc, setImageSrc] = useState('')
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  // const slug = useParams()
+  // console.log(slug)
   const onSelectFile = (info: any) => {
     if (info.file.status !== 'uploading') {
       if (imageSrc) {
