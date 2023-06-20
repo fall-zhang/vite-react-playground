@@ -37,13 +37,18 @@ const pageRoutes: RouteParam[] = [{
     element: React.lazy(() => import('@/pages/picture/Compress/index')),
     // element: MySuspense('@/pages/picture/Compress/index'),
     meta: { title: '图片压缩', icon: <TableOutlined /> }
-  }
-  ]
+  }]
 },
 {
   path: '/works',
   element: React.lazy(() => import('@/pages/works/index')),
-  meta: { title: '工作内容', icon: <CreditCardOutlined></CreditCardOutlined> }
+  meta: { title: '实现的内容', icon: <CreditCardOutlined></CreditCardOutlined> },
+  children: [{
+    path: '/works/watermark',
+    element: React.lazy(() => import('@/pages/picture/WaterMark/index')),
+    // element: MySuspense('@/pages/picture/WaterMark/index'),
+    meta: { title: '添加水印', icon: <TableOutlined /> }
+  }]
 },
 {
   path: '/icon',
