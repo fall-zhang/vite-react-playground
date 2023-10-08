@@ -10,11 +10,9 @@ const LoginPage: React.FC = () => {
     setLoginWay(name)
   }
   return (
-    <>
-      <div className={classNames(styles.loginContainer)}>
-        <LoginCard signInWay={updateWay} />
-      </div>
-    </>
+    <div className={classNames(styles.loginContainer)}>
+      <LoginCard signInWay={updateWay} />
+    </div>
   )
 }
 

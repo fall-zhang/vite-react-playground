@@ -3,30 +3,29 @@ import React, { ReactNode } from 'react'
 import type { IntlShape } from 'react-intl'
 import { createIntl, IntlProvider } from 'react-intl'
 import ConfigProvider from 'antd/lib/config-provider'
-// 默认提供一套语言，然后实现动态加载另一种语言
-// 项目中的语言信息
 import antdZhCN from 'antd/lib/locale/zh_CN'
 import antdEnUS from 'antd/lib/locale/en_US'
 import en_US from './lang/en_US.json'
 import zh_CN from './lang/zh_CN.json'
 import type { SupportLanguage, MessageDescriptor, SingleLanguageSetting } from './language'
+// 统一设置语言信息，然后实现动态加载另一种语言
+// 项目中的语言信息
 
 // 默认语言和当前语言信息
 const defaultLanguage = 'zh-CN'
 let globalInitLanguage: IntlShape
 
-// 添加默认本地语言
-if (!localStorage.getItem('current__locale')) {
-  localStorage.setItem('current__locale', defaultLanguage)
-}
-
 function getLocale(): SupportLanguage {
+  // 添加默认本地语言
+  if (!localStorage.getItem('current__locale')) {
+    localStorage.setItem('current__locale', defaultLanguage)
+  }
   const result = localStorage.getItem('current__locale')
   return result as SupportLanguage
 }
 
 function setLocale(lang: SupportLanguage): boolean {
-  localStorage.setItem('current__locale', lang || defaultLanguage)
+  localStorage.setItem('current__locale', lang)
   // 设置语言后重载，查看是否可以不用重载
   // window.location.reload()
   return true

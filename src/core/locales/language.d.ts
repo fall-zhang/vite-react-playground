@@ -1,9 +1,8 @@
-import { Locale } from 'antd/es/locale-provider'
+import { Locale } from 'antd/es/locale'
 
 // language support
 type SupportLanguage = 'en-US' | 'zh-CN'
 
-//
 type SingleLanguageSetting = {
   locale: SupportLanguage,
   messages: any,

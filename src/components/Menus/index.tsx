@@ -10,7 +10,7 @@ type MenuItem = Required<MenuProps>['items'][number];
 const genMenuItem = (key: string, label: string, icon?: ReactNode, children?: MenuItem[]): MenuItem => ({
   key: key,
   icon: icon,
-  label: <Link to={key}>{label}</Link>,
+  label: children ? <span>{label}</span> : <Link to={key}>{label}</Link>,
   children: children
 })
 

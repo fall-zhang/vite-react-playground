@@ -1,7 +1,7 @@
 import Icon from '@/components/Icons/AntdIcon'
 import React, { useState } from 'react'
 import styles from './index.module.less'
-import IconSelect from '@/components/IconSelect'
+import IconSelect from '@/components/Form/IconSelect'
 import type { IconType } from '@/components/Icons/AntdIcon'
 interface IconItem extends IconType {
   describe: string

@@ -1,7 +1,18 @@
+
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
+  --primary-100:#FFD700;
+  --primary-200:#ddb900;
+  --primary-300:#917800;
+  --accent-100:#c49216;
+  --accent-200:#5e3b00;
+  --text-100:#dcdcdc;
+  --text-200:#929292;
+  --bg-100:#1E1E1E;
+  --bg-200:#2d2d2d;
+  --bg-300:#454545;
 }
 
 .clock {
@@ -18,14 +29,14 @@
   list-style: none;
   width: 100%;
   height: 100%;
-  background-color: wheat;
+  background-color: var(--bg-300);
   position: absolute;
 
   .neddle_one {
     height: 8px;
     width: 3px;
     margin-left: -2px;
-    background-color: black;
+    background-color: var(--primary-100);
     position: absolute;
     left: 50%;
     transform-origin: center 200px;
@@ -36,7 +47,6 @@
   height: 400px;
   width: 400px;
   position: absolute;
-  // margin-top: -100%;
   z-index: 2;
 
   .hour {
@@ -46,13 +56,12 @@
     margin: -100px 0 0 -10px;
     padding-bottom: 20px;
     border-radius: 10px;
-    background-color: black;
+    background-color: var(--primary-300);
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     transform-origin: center 100px;
-    /* transform: rotate(90deg); */
   }
 
   .minute {
@@ -60,17 +69,15 @@
     height: 160px;
     width: 12px;
     padding-bottom: 40px;
-    /* box-sizing: padding-box; */
-    border: 2px solid wheat;
+    border: 2px solid var(--bg-300);
     border-radius: 6px 6px 3px 3px;
     margin: -160px 0 0 -6px;
-    background-color: black;
+    background-color: var(--primary-200);
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     transform-origin: center 160px;
-    /* transform: rotate(60deg); */
   }
 
   .second {
@@ -79,20 +86,20 @@
     width: 3px;
     padding-bottom: 40px;
     margin: -180px 0 0 -1.5px;
-    background-color: crimson;
+    background-color: var(--primary-100);
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     transform-origin: center 180px;
-    /* transform: rotate(190deg); */
   }
 
   .clock_center {
-    height: 2px;
-    width: 2px;
-    margin: -1px 0 0 -1px;
-    background-color: white;
+    height: 12px;
+    width: 12px;
+    z-index: 12;
+    margin: -6px 0 0 -6px;
+    background-color: var(--bg-100);
     position: absolute;
     border-radius: 50%;
     left: 50%;
