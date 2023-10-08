@@ -40,15 +40,19 @@ const pageRoutes: RouteParam[] = [{
   }]
 },
 {
-  path: '/works',
-  element: React.lazy(() => import('@/pages/works/index')),
-  meta: { title: '实现的内容', icon: <CreditCardOutlined></CreditCardOutlined> },
-  children: [{
-    path: '/works/watermark',
-    element: React.lazy(() => import('@/pages/picture/WaterMark/index')),
-    // element: MySuspense('@/pages/picture/WaterMark/index'),
-    meta: { title: '添加水印', icon: <TableOutlined /> }
-  }]
+  path: '/clock',
+  element: React.lazy(() => import('@/pages/clock/OneClock')),
+  meta: { title: '时钟', icon: <CreditCardOutlined></CreditCardOutlined> }
+},
+{
+  path: '/canvas',
+  element: React.lazy(() => import('@/pages/canvas/LovelyCanvas')),
+  meta: { title: 'canvas', icon: <CreditCardOutlined></CreditCardOutlined> }
+},
+{
+  path: '/pixel',
+  element: React.lazy(() => import('@/pages/pixel/PixelPaint')),
+  meta: { title: '像素画', icon: <CreditCardOutlined></CreditCardOutlined> }
 },
 {
   path: '/icon',

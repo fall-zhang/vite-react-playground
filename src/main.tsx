@@ -4,7 +4,7 @@ import './global.less'
 import { ConfigProvider } from 'antd'
 import zhCN from 'antd/locale/zh_CN'
 import 'antd/dist/reset.css'
-import RouterPage from './router'
+import RouterPage from './router/fun-route'
 import clsx from 'clsx'
 // import { LocaleProvider } from './core/locales'
 const container = document.getElementById('root')!
