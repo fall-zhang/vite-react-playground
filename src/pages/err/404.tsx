@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { Result, Button } from 'antd'
 import { useNavigate } from 'react-router-dom'
 const ErrPage: FC = () => {
-  const logged = sessionStorage.token
+  const logged = true
   const navigate = useNavigate()
   const TypeButton = (
     <Button type="primary" key="login" onClick={() => { navigate('/login') }}>

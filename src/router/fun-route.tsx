@@ -5,7 +5,7 @@ import { createRoutesFromChildren } from 'react-router'
 import pageRoutes from './pageRoutes'
 
 import LoginPage from '@/pages/login'
-import ErrorPage from '@/pages/err'
+import ErrorPage404 from '@/pages/err/404'
 import MainLayout from '@/layouts/MainLayout'
 // 这里面使用的是 createRoutesFromChildren createBrowserRouter 生成的路由
 const genMainRoutes = (routes: any) => {
@@ -25,18 +25,20 @@ const genMainRoutes = (routes: any) => {
   // console.log(result)
   return result
 }
+
 const BaseRoute = createRoutesFromChildren(<>
   <Route path='/login' element={<LoginPage></LoginPage>}></Route>
-  <Route path='/err' element={<ErrorPage></ErrorPage>}></Route>
+  <Route path='/err' element={<ErrorPage404></ErrorPage404>}></Route>
   {/* 默认会添加左侧的菜单区域 */}
   {/* {RouteEle} */}
   <Route path='/' element={<MainLayout></MainLayout>}>
     {genMainRoutes(pageRoutes)}
-    <Route path='/' element={<Navigate to="/picture/watermark" replace />} ></Route>
-    <Route path='/*' element={<Navigate to="/err" replace />} ></Route>
   </Route>
+  <Route path='/' element={<Navigate to="/picture/watermark" replace />} ></Route>
+  <Route path='/*' element={<Navigate to="/err" replace />} ></Route>
 </>)
-export default function(){
+
+export default function () {
   return <RouterProvider router={createBrowserRouter(BaseRoute)}></RouterProvider>
 }
 
