@@ -1,8 +1,8 @@
-import React, { ReactElement } from 'react'
-import { BrowserRouter, Routes, Route, useRoutes, Navigate, createBrowserRouter } from 'react-router-dom'
+import React from 'react'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 import LoginPage from '@/pages/login'
-import ErrorPage from '@/pages/err'
+import ErrorPage404 from '@/pages/err/404'
 import MainLayout from '@/layouts/MainLayout'
 import pageRoutes from './pageRoutes'
 
@@ -12,7 +12,7 @@ const RouterPage: React.FC = () => {
     <Routes>
       {/* 全局路由页面，会覆盖整个页面 */}
       <Route path='/login' element={<LoginPage></LoginPage>}></Route>
-      <Route path='/err' element={<ErrorPage></ErrorPage>}></Route>
+      <Route path='/err' element={<ErrorPage404></ErrorPage404>}></Route>
       {/* 默认会添加左侧的菜单区域 */}
       {/* {RouteEle} */}
       <Route path='/' element={<MainLayout></MainLayout>}>

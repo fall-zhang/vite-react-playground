@@ -1,4 +1,6 @@
-
+/**
+ * createRoutesFromChildren 创建的路由
+ */
 import React from 'react'
 import { Route, Navigate, createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { createRoutesFromChildren } from 'react-router'
