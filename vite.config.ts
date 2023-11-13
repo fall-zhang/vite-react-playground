@@ -8,7 +8,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   const isBuild = command === 'build'
   return {
     server: {
-      port: 3001,
+      port: 3575,
       proxy: {
         [proxyApi]: {
           target: apiAddress,

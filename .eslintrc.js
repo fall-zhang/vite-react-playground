@@ -5,6 +5,7 @@ module.exports = {
     node: true
   },
   extends: [
+    'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended'
   ],
@@ -19,9 +20,10 @@ module.exports = {
   plugins: ['react', '@typescript-eslint'],
   rules: {
     // js
-    'no-else-return': 2, //如果 if 语句里面有 return ,后面不能跟 else 语句
+    'no-else-return': 2, //如果 if 语句里面有 return 后面不能跟 else 语句
     'arrow-body-style': 0,
     'jsx-a11y/label-has-for': 0,
+    'comma-dangle': 0, // 最后一个对象末尾可以加 ,（逗号）
     'max-lines-per-function': [
       2,
       { max: 320, skipComments: true, skipBlankLines: true }
@@ -39,16 +41,16 @@ module.exports = {
     'no-proto': 1, // 禁止使用__proto__属性
     'no-sparse-arrays': 2, // 禁止稀疏数组， [1,,2]
     quotes: [1, 'single'], // 引号类型 `` "" ''
-    // 'consistent-this': [2, 'that'],// this别名
+    // 'consistent-this': [2, 'that'],// 固定 this 的别名
     'no-param-reassign': [
       2,
       { props: true, ignorePropertyModificationsFor: ['draft'] }
     ],
+    // react
     'react/no-this-in-sfc': 0,
     'react/prop-types': 0,
-    'comma-dangle': ['error', 'never'], // 最后一个属性不允许有逗号
     'react/display-name': 'off',
-    // TS
-    '@typescript-eslint/no-this-alias': 0
+    // typescript
+    '@typescript-eslint/no-this-alias': 0, // 是否禁止 this 的别名
   }
 }
