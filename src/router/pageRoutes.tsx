@@ -71,7 +71,7 @@ const pageRoutes: RouteParam[] = [{
 }, {
   path: '/contact',
   element: React.lazy(() => import('@/pages/contact/index')),
-  meta: { title: '联系方式', icon: <GithubOutlined></GithubOutlined> }
+  meta: { title: '关于我', icon: <GithubOutlined></GithubOutlined> }
 }
 ]
 export default pageRoutes
