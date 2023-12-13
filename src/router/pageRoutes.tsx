@@ -6,6 +6,7 @@ import {
   PieChartOutlined,
   TableOutlined
 } from '@ant-design/icons'
+import EmptyOutlet from './EmptyOutlet'
 // import BlankRoute from 'BlankPage'
 // 实现解析当前路由
 // const MySuspense = (path: string) => {
@@ -15,8 +16,9 @@ import {
 //   </React.Suspense>
 // }
 
-import type { RouteParam } from './route'
-const pageRoutes: RouteParam[] = [{
+// import type { RouteParam } from './route'
+
+const pageRoutes= [{
   path: '/picture',
   element: React.lazy(() => import('@/pages/picture/index')),
   // element: MySuspense('@/pages/picture/index'),
@@ -50,6 +52,11 @@ const pageRoutes: RouteParam[] = [{
   meta: { title: 'canvas', icon: <CreditCardOutlined></CreditCardOutlined> }
 },
 {
+  path: '/confetti',
+  element: React.lazy(() => import('@/pages/canvas/ConfettiCanvas')),
+  meta: { title: 'confetti', icon: <CreditCardOutlined></CreditCardOutlined> }
+},
+{
   path: '/pixel',
   element: React.lazy(() => import('@/pages/pixel/PixelPaint')),
   meta: { title: '像素画', icon: <CreditCardOutlined></CreditCardOutlined> }
@@ -66,9 +73,22 @@ const pageRoutes: RouteParam[] = [{
 },
 {
   path: '/table',
-  element: React.lazy(() => import('@/pages/table')),
-  meta: { title: '表格导入导出', icon: <PieChartOutlined></PieChartOutlined> }
-}, {
+  element: React.lazy(() => import('./EmptyOutlet')),
+  meta: { title: '表格导入导出', icon: <PieChartOutlined></PieChartOutlined> },
+  children: [
+    {
+      path: '/table/export',
+      element: React.lazy(() => import('@/pages/table/index')),
+      meta: { title: '权限验证', icon: <PieChartOutlined></PieChartOutlined> }
+    },
+    {
+      path: '/table/select',
+      element: React.lazy(() => import('@/pages/table/select-table')),
+      meta: { title: '权限验证', icon: <PieChartOutlined></PieChartOutlined> }
+    },
+  ]
+},
+{
   path: '/contact',
   element: React.lazy(() => import('@/pages/contact/index')),
   meta: { title: '关于我', icon: <GithubOutlined></GithubOutlined> }

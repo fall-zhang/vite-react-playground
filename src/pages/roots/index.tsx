@@ -19,13 +19,13 @@ const AuthPage: React.FC = () => {
   return (
     <>
       <div className={styles.auth}>
-        <div className={classNames(styles.authContent, { [styles.noAuth]: state, [styles.grayAuth]: !state })}>
+        <div className={classNames(styles.authContent, styles.noAuth)}>
           <span>使用权限组件包裹</span>
           <AuthContainer token={rootState}>
-            <Button >Hello world</Button>
+            <Button>Hello world</Button>
           </AuthContainer>
         </div>
-        <div className={classNames(styles.authContent, { [styles.noneAuth]: state, [styles.grayAuth]: !state })}>
+        <div className={classNames(styles.authContent, styles.noneAuth)}>
           <div>不使用权限组件包裹</div>
           <Button>button1</Button>
           <Button>button2</Button>
