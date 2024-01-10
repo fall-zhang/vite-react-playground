@@ -22,6 +22,7 @@ class ShuffleText {
   /**
    * The milli seconds of effect time.
    * エフェクトの実行時間（ミリ秒）です。
+   * 动画持续时间
    * @type {number}
    * @default 600
    */
@@ -34,17 +35,19 @@ class ShuffleText {
   _randomIndex: Array<any> = []
   _element: HTMLElement | null
   _requestAnimationFrameId = 0
-  constructor(element: HTMLElement) {
+  constructor (element: HTMLElement) {
     this.contentText = element.textContent
     this.setText(this.contentText ?? '')
     this._element = element
   }
-  setText(text: string) {
+
+  setText (text: string) {
     this._originalStr = text
     this._originalLength = text.length
   }
+
   /** Play effect. 再生を開始します。 */
-  start() {
+  start () {
     const _this = this
     this.stop()
     this._randomIndex = []
@@ -63,12 +66,14 @@ class ShuffleText {
       this._element.textContent = this.contentText
     }
   }
+
   /** Stop effect. 。 */
-  stop() {
+  stop () {
     this._isRunning = false
     cancelAnimationFrame(this._requestAnimationFrameId)
   }
-  __onInterval() {
+
+  __onInterval () {
     const _this = this
     this._timeCurrent = new Date().getTime() - this._timeStart
     const percent = this._timeCurrent / this.duration
@@ -76,11 +81,9 @@ class ShuffleText {
     for (let i = 0; i < this._originalLength; i++) {
       if (percent >= _this._randomIndex[i]) {
         str += _this._originalStr.charAt(i)
-      }
-      else if (percent < _this._randomIndex[i] / 3) {
+      } else if (percent < _this._randomIndex[i] / 3) {
         str += _this.emptyCharacter
-      }
-      else {
+      } else {
         str += _this.sourceRandomCharacter.charAt(Math.floor(Math.random() * _this.sourceRandomCharacter.length))
       }
     }
