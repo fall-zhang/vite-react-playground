@@ -13,7 +13,9 @@
     "lint:style": "stylelint --fix \"src/**/*.less\" less",
     "lint-staged": "lint-staged",
     "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx ",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -41,6 +43,14 @@
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.6.17",
+    "@storybook/addon-interactions": "^7.6.17",
+    "@storybook/addon-links": "^7.6.17",
+    "@storybook/addon-onboarding": "1.0.11",
+    "@storybook/blocks": "^7.6.17",
+    "@storybook/react": "^7.6.17",
+    "@storybook/react-vite": "^7.6.17",
+    "@storybook/test": "^7.6.17",
     "@types/node": "^16.18.62",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
@@ -51,12 +61,14 @@
     "eslint": "^8.54.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-storybook": "^0.8.0",
     "husky": "^8.0.3",
     "less": "^4.2.0",
     "lint-staged": "^13.3.0",
     "postcss": "^8.4.31",
     "postcss-less": "^6.0.0",
     "prettier": "^2.8.8",
+    "storybook": "^7.6.17",
     "stylelint": "^14.16.1",
     "stylelint-config-standard": "^29.0.0",
     "typescript": "^5.2.2",

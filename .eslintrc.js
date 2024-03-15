@@ -4,12 +4,7 @@ module.exports = {
     es2022: true,
     node: true
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'eslint-config-standard',
-    'plugin:@typescript-eslint/recommended'
-  ],
+  extends: ['eslint:recommended', 'plugin:react/recommended', 'eslint-config-standard', 'plugin:@typescript-eslint/recommended', 'plugin:storybook/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
