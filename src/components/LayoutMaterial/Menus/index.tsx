@@ -8,14 +8,14 @@ import { formatMessage } from '@/core/locales'
 type MenuItem = Required<MenuProps>['items'][number];
 
 const genMenuItem = (key: string, label: string, icon?: ReactNode, children?: MenuItem[]): MenuItem => ({
-  key: key,
-  icon: icon,
+  key,
+  icon,
   label: children ? <span>{label}</span> : <Link to={key}>{label}</Link>,
-  children: children
+  children
 })
 
 const menuItems: MenuProps['items'] = pageRoutes.map(route => {
-  let child: MenuProps['items'] = undefined
+  let child: MenuProps['items']
   if (route.children) {
     child = route.children.map(child => {
       return genMenuItem(child.path, child.meta.title, child.meta.icon)
