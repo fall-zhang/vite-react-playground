@@ -7,7 +7,7 @@
 */
 import React, { ReactNode, useState } from 'react'
 
-import Menu from '@C/Menus'
+import Menu from '@C/LayoutMaterial/Menus'
 import FooterText from './material/Footer'
 import './MainLayout.less'
 import { Layout } from 'antd'

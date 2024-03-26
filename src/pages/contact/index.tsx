@@ -5,6 +5,7 @@ import styles from './index.module.less'
 import { Tooltip } from 'antd'
 import ShuffleText from './shuffle-text'
 // import { $http } from "@/utils/reuqest"
+import MyLogo from './MyLogo'
 
 const ContactMe: React.FC<{ children?: ReactNode }> = ({ children }) => {
   const dom = useRef<HTMLHeadingElement>(null)
@@ -20,6 +21,7 @@ const ContactMe: React.FC<{ children?: ReactNode }> = ({ children }) => {
       <div className={styles.nameZone}><h2 className={styles.name}>Fall</h2></div>
       <div className={styles.name_bg}><h2 className={styles.name2}>Fall Zhang</h2></div>
       <div className={styles.name_bg}><h2 className={styles.name3}>Fall Zhang</h2></div>
+      <MyLogo/>
       {/* <Tooltip placement="bottom" color={'plum'} title={'fellow me'}> */}
       <div className={styles.doc}>
         <a href='https://juejin.cn/user/1565342280463325' target="_blank" rel="noreferrer">
