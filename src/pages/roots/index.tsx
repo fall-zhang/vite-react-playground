@@ -6,10 +6,10 @@ import { AuthContainer } from '@/core/roots'
 const AuthPage: React.FC = () => {
   const [state, setState] = useState(true)
   const [rootState, setRootState] = useState('')
-  function toggleState() {
+  function toggleState () {
     setState(!state)
   }
-  function toggleRoot() {
+  function toggleRoot () {
     if (rootState === '') {
       setRootState('button')
     } else {
