@@ -36,7 +36,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
           modifyVars: {
             '@primary-color': '#1890ff',
             // '@primary-1': '#096dd9',
-            '@primary-2': '#1890ff',// 全局主色
+            '@primary-2': '#1890ff', // 全局主色
             '@primary-3': '#46a6ff',
             '@primary-4': '#74bcff',
             '@primary-5': '#a2d2ff',

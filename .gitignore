@@ -6,6 +6,7 @@ dist-ssr
 yarn.lock
 *.log
 
+.husky/_
 .eslintcache
 
 # 只使用 pnpm

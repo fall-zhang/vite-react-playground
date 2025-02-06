@@ -1,3 +1,6 @@
+> 注意！！！
+> 该项目将被废弃，内容转移到 my-next-pages 应用
+
 # React Playground
 
 > 完美不在于无以附加，而在于无可删减

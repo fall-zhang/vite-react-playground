@@ -74,12 +74,12 @@ const pageRoutes = [
         path: '/table/export',
         element: React.lazy(() => import('@/pages/table/index')),
         meta: { title: '权限验证', icon: <PieChartOutlined></PieChartOutlined> }
-      },
-      {
-        path: '/table/select',
-        element: React.lazy(() => import('@/pages/table/select-table')),
-        meta: { title: '权限验证', icon: <PieChartOutlined></PieChartOutlined> }
       }
+      // {
+      //   path: '/table/select',
+      //   element: React.lazy(() => import('@/pages/table/select-table')),
+      //   meta: { title: '权限验证', icon: <PieChartOutlined></PieChartOutlined> }
+      // }
     ]
   },
   {

@@ -4,7 +4,7 @@ module.exports = {
     es2022: true,
     node: true
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended', 'eslint-config-standard', 'plugin:@typescript-eslint/recommended', 'plugin:storybook/recommended'],
+  extends: ['eslint:recommended', 'plugin:react/recommended', 'eslint-config-standard', 'plugin:react/jsx-runtime', 'plugin:@typescript-eslint/recommended', 'plugin:storybook/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -49,6 +49,8 @@ module.exports = {
     'react/prop-types': 0,
     'react/display-name': 'off',
     // typescript
+
+    '@typescript-eslint/no-unused-vars': 0, // 是否禁止 this 的别名
     '@typescript-eslint/no-this-alias': 0 // 是否禁止 this 的别名
   }
 }

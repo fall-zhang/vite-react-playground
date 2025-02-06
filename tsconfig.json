@@ -14,7 +14,7 @@
     "isolatedModules": true,
     "skipLibCheck": false, // 因为 Vite 中使用的 ESbuild 暂时不支持 enum，暂时设置为 false
     "noEmit": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "paths": {
       "@/*": ["src/*"],
       "@C*": ["src/components*"],
